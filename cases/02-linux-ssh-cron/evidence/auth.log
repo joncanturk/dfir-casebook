@@ -1,0 +1,4 @@
+2026-02-11T10:00:00+02:00 LAB-LNX01 sshd[410]: Failed password for deploy from 198.51.100.23 port 51000 ssh2
+2026-02-11T10:01:00+02:00 LAB-LNX01 sshd[411]: Failed password for deploy from 198.51.100.23 port 51001 ssh2
+2026-02-11T10:03:00+02:00 LAB-LNX01 sshd[420]: Accepted publickey for deploy from 198.51.100.23 port 51010 ssh2
+2026-02-11T10:04:00+02:00 LAB-LNX01 sshd[430]: Accepted publickey for backup from 192.0.2.40 port 52000 ssh2

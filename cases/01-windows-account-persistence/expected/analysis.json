@@ -1,0 +1,148 @@
+{
+  "case_id": "01-windows-account-persistence",
+  "synthetic": true,
+  "integrity": "verified",
+  "event_count": 8,
+  "timeline": [
+    {
+      "timestamp_utc": "2026-02-10T09:00:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "logon_failed",
+      "user": "operator",
+      "evidence_ref": "evidence/security.jsonl:1",
+      "detail": "Windows event 4625; record 1001",
+      "target_sid": "",
+      "member_sid": "",
+      "group_sid": "",
+      "account_scope": "unknown",
+      "actor": "",
+      "source_ip": "192.0.2.25"
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:00:30.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "logon_failed",
+      "user": "operator",
+      "evidence_ref": "evidence/security.jsonl:2",
+      "detail": "Windows event 4625; record 1002",
+      "target_sid": "",
+      "member_sid": "",
+      "group_sid": "",
+      "account_scope": "unknown",
+      "actor": "",
+      "source_ip": "192.0.2.25"
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:02:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "logon_success",
+      "user": "operator",
+      "evidence_ref": "evidence/security.jsonl:3",
+      "detail": "Windows event 4624; record 1003",
+      "target_sid": "S-1-5-21-100-200-300-1101",
+      "member_sid": "",
+      "group_sid": "",
+      "account_scope": "unknown",
+      "actor": "",
+      "source_ip": "192.0.2.25"
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:05:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "account_created",
+      "user": "svc-support",
+      "evidence_ref": "evidence/security.jsonl:4",
+      "detail": "Windows event 4720; record 1004",
+      "target_sid": "S-1-5-21-100-200-300-1105",
+      "member_sid": "",
+      "group_sid": "",
+      "account_scope": "local",
+      "actor": "LAB-WIN01\\operator",
+      "source_ip": ""
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:06:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "group_member_added",
+      "user": "LAB-WIN01\\operator",
+      "evidence_ref": "evidence/security.jsonl:5",
+      "detail": "Windows event 4732; record 1005",
+      "target_sid": "",
+      "member_sid": "S-1-5-21-100-200-300-1105",
+      "group_sid": "S-1-5-32-544",
+      "account_scope": "unknown",
+      "actor": "LAB-WIN01\\operator",
+      "source_ip": ""
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:07:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "group_member_added",
+      "user": "LAB-WIN01\\helpdesk",
+      "evidence_ref": "evidence/security.jsonl:6",
+      "detail": "Windows event 4732; record 1006",
+      "target_sid": "",
+      "member_sid": "S-1-5-21-100-200-300-1200",
+      "group_sid": "S-1-5-32-545",
+      "account_scope": "unknown",
+      "actor": "LAB-WIN01\\helpdesk",
+      "source_ip": ""
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:08:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "logon_success",
+      "user": "svc-support",
+      "evidence_ref": "evidence/security.jsonl:7",
+      "detail": "Windows event 4624; record 1007",
+      "target_sid": "S-1-5-21-100-200-300-1105",
+      "member_sid": "",
+      "group_sid": "",
+      "account_scope": "unknown",
+      "actor": "",
+      "source_ip": "192.0.2.25"
+    },
+    {
+      "timestamp_utc": "2026-02-10T09:10:00.000000Z",
+      "host": "LAB-WIN01",
+      "kind": "security_log_cleared",
+      "user": "LAB-WIN01\\operator",
+      "evidence_ref": "evidence/security.jsonl:8",
+      "detail": "Windows event 1102; record 1008",
+      "target_sid": "",
+      "member_sid": "",
+      "group_sid": "",
+      "account_scope": "unknown",
+      "actor": "LAB-WIN01\\operator",
+      "source_ip": ""
+    }
+  ],
+  "findings": [
+    {
+      "id": "W01",
+      "title": "New local account added to Administrators",
+      "attack": [
+        "T1136.001",
+        "T1098.007"
+      ],
+      "evidence_refs": [
+        "evidence/security.jsonl:4",
+        "evidence/security.jsonl:5"
+      ],
+      "assessment": "Exact SID and host link the created account to a later privileged-group addition. Authorization and human identity remain unproven.",
+      "disposition": "requires analyst validation"
+    },
+    {
+      "id": "W02",
+      "title": "Security log clear observed",
+      "attack": [
+        "T1685.005"
+      ],
+      "evidence_refs": [
+        "evidence/security.jsonl:8"
+      ],
+      "assessment": "A log clear is recorded. Intent and the full extent of unavailable earlier records cannot be determined from this event alone.",
+      "disposition": "requires analyst validation"
+    }
+  ]
+}

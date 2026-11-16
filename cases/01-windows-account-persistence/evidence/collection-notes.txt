@@ -1,0 +1,9 @@
+SYNTHETIC COLLECTION - NOT A REAL INCIDENT
+Collection identifier: WIN-LAB-001
+Prepared collection time: 2026-02-10T09:20:00Z
+Host role: standalone Windows workstation, LAB-WIN01.
+Source: constructed normalized Windows Security event examples, not EVTX.
+account_scope was assigned as local from the synthetic host role and SID design.
+No disk image, memory capture, process tree, approval tickets or original EVTX are supplied.
+Timestamps are authored UTC examples; actual clock offset cannot be assessed.
+The normal group-membership event is a benign contrast, not a verified business change.

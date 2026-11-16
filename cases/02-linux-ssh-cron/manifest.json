@@ -1,0 +1,28 @@
+{
+  "case_id": "02-linux-ssh-cron",
+  "synthetic": true,
+  "parser": "linux-auth-and-cron",
+  "hash_algorithm": "SHA-256",
+  "files": [
+    {
+      "path": "evidence/auth.log",
+      "bytes": 439,
+      "sha256": "282f6e1ae12e994741003f2a07dcc581117968dedf961c8564841a350533da9e"
+    },
+    {
+      "path": "evidence/collection-notes.txt",
+      "bytes": 599,
+      "sha256": "e19a47a49f4233d8a7055176ca59959f53c7a03ca9b5d42330ff327c53a4df11"
+    },
+    {
+      "path": "evidence/crontab.txt",
+      "bytes": 162,
+      "sha256": "864ac8d49cf14cff7897bdb315268e699687ae16f75fec11fc5bbe45a0a0ec7e"
+    },
+    {
+      "path": "evidence/snapshot.json",
+      "bytes": 182,
+      "sha256": "1b7cd796f9baa5b5a087759b6c2acda87e1af05427b08a3fefc9e641e7f7cec0"
+    }
+  ]
+}

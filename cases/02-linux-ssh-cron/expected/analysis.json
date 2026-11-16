@@ -1,0 +1,80 @@
+{
+  "case_id": "02-linux-ssh-cron",
+  "synthetic": true,
+  "integrity": "verified",
+  "event_count": 6,
+  "timeline": [
+    {
+      "timestamp_utc": "2026-02-11T08:00:00.000000Z",
+      "host": "LAB-LNX01",
+      "kind": "ssh_failed",
+      "user": "deploy",
+      "evidence_ref": "evidence/auth.log:1",
+      "detail": "Failed password from 198.51.100.23; sshd PID 410",
+      "source_ip": "198.51.100.23"
+    },
+    {
+      "timestamp_utc": "2026-02-11T08:01:00.000000Z",
+      "host": "LAB-LNX01",
+      "kind": "ssh_failed",
+      "user": "deploy",
+      "evidence_ref": "evidence/auth.log:2",
+      "detail": "Failed password from 198.51.100.23; sshd PID 411",
+      "source_ip": "198.51.100.23"
+    },
+    {
+      "timestamp_utc": "2026-02-11T08:03:00.000000Z",
+      "host": "LAB-LNX01",
+      "kind": "ssh_success",
+      "user": "deploy",
+      "evidence_ref": "evidence/auth.log:3",
+      "detail": "Accepted publickey from 198.51.100.23; sshd PID 420",
+      "source_ip": "198.51.100.23"
+    },
+    {
+      "timestamp_utc": "2026-02-11T08:04:00.000000Z",
+      "host": "LAB-LNX01",
+      "kind": "ssh_success",
+      "user": "backup",
+      "evidence_ref": "evidence/auth.log:4",
+      "detail": "Accepted publickey from 192.0.2.40; sshd PID 430",
+      "source_ip": "192.0.2.40"
+    },
+    {
+      "timestamp_utc": "2026-02-11T08:15:00.000000Z",
+      "host": "LAB-LNX01",
+      "kind": "cron_snapshot",
+      "user": "deploy",
+      "evidence_ref": "evidence/crontab.txt:2",
+      "detail": "Observed at collection; schedule=15 2 * * *; command=/usr/local/bin/approved-backup",
+      "command": "/usr/local/bin/approved-backup",
+      "metadata_ref": "evidence/snapshot.json:1"
+    },
+    {
+      "timestamp_utc": "2026-02-11T08:15:00.000000Z",
+      "host": "LAB-LNX01",
+      "kind": "cron_snapshot",
+      "user": "deploy",
+      "evidence_ref": "evidence/crontab.txt:3",
+      "detail": "Observed at collection; schedule=*/5 * * * *; command=/bin/sh /tmp/.cache-maint.sh",
+      "command": "/bin/sh /tmp/.cache-maint.sh",
+      "metadata_ref": "evidence/snapshot.json:1"
+    }
+  ],
+  "findings": [
+    {
+      "id": "L01",
+      "title": "Cron entry references a temporary-directory script",
+      "attack": [
+        "T1053.003"
+      ],
+      "evidence_refs": [
+        "evidence/auth.log:3",
+        "evidence/crontab.txt:3",
+        "evidence/snapshot.json:1"
+      ],
+      "assessment": "The collected user crontab references /tmp. A prior same-user SSH event, when referenced, provides context only: collection time is not creation time and the session is not proven to have installed the entry.",
+      "disposition": "requires analyst validation"
+    }
+  ]
+}

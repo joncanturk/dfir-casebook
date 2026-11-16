@@ -1,0 +1,18 @@
+{
+  "case_id": "01-windows-account-persistence",
+  "synthetic": true,
+  "parser": "windows-normalized-jsonl",
+  "hash_algorithm": "SHA-256",
+  "files": [
+    {
+      "path": "evidence/collection-notes.txt",
+      "bytes": 593,
+      "sha256": "3b159075d1a940685fceb8f9b80504872d1169d7837bc7e20312b5b7249c77f0"
+    },
+    {
+      "path": "evidence/security.jsonl",
+      "bytes": 2043,
+      "sha256": "d69601fe8b22d3f3edf59f1936ea522780779c3683cec401f81528f319571200"
+    }
+  ]
+}

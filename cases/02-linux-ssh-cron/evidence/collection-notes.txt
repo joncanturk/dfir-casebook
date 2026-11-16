@@ -1,0 +1,9 @@
+SYNTHETIC COLLECTION - NOT A REAL INCIDENT
+Collection identifier: LNX-LAB-002
+Prepared collection time: 2026-02-11T08:15:00Z
+Host role: Linux deployment server, LAB-LNX01.
+deploy and backup are local accounts in the fictional host inventory.
+auth.log uses an explicitly offset timestamp prefix for reproducibility.
+The referenced /tmp script is not included. No executable payload exists in this collection.
+No auditd records, process tree, file metadata, network capture or change tickets are supplied.
+The cron snapshot does not establish who created a job, when it was created or whether it ran.

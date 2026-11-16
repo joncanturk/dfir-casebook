@@ -1,0 +1,3 @@
+# Synthetic user crontab snapshot for deploy; never installed by this project.
+15 2 * * * /usr/local/bin/approved-backup
+*/5 * * * * /bin/sh /tmp/.cache-maint.sh

@@ -1,0 +1,9 @@
+timestamp_utc,host,kind,user,evidence_ref,detail
+2026-02-10T09:00:00.000000Z,LAB-WIN01,logon_failed,operator,evidence/security.jsonl:1,Windows event 4625; record 1001
+2026-02-10T09:00:30.000000Z,LAB-WIN01,logon_failed,operator,evidence/security.jsonl:2,Windows event 4625; record 1002
+2026-02-10T09:02:00.000000Z,LAB-WIN01,logon_success,operator,evidence/security.jsonl:3,Windows event 4624; record 1003
+2026-02-10T09:05:00.000000Z,LAB-WIN01,account_created,svc-support,evidence/security.jsonl:4,Windows event 4720; record 1004
+2026-02-10T09:06:00.000000Z,LAB-WIN01,group_member_added,LAB-WIN01\operator,evidence/security.jsonl:5,Windows event 4732; record 1005
+2026-02-10T09:07:00.000000Z,LAB-WIN01,group_member_added,LAB-WIN01\helpdesk,evidence/security.jsonl:6,Windows event 4732; record 1006
+2026-02-10T09:08:00.000000Z,LAB-WIN01,logon_success,svc-support,evidence/security.jsonl:7,Windows event 4624; record 1007
+2026-02-10T09:10:00.000000Z,LAB-WIN01,security_log_cleared,LAB-WIN01\operator,evidence/security.jsonl:8,Windows event 1102; record 1008
