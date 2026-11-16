@@ -4,7 +4,7 @@
 
 Two synthetic digital-forensics investigations with verifiable evidence, reproducible UTC timelines, and reports that distinguish observations from hypotheses.
 
-**English-only · MITRE ATT&CK-aligned · Python standard library · Offline**
+**MITRE ATT&CK-aligned · Python standard library · Offline**
 
 This portfolio demonstrates evidence handling and analytical reasoning. All identities, addresses, events and collection records are fictional. These are authored evidence fixtures, not records from a real intrusion or a claim of hands-on forensic acquisition.
 
